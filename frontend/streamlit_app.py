@@ -189,10 +189,14 @@ PLOTLY_LAYOUT = dict(
     )
 )
 
-
 def get_backend_url() -> str:
-    return os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
-
+    try:
+        return st.secrets["BACKEND_URL"].rstrip("/")
+    except Exception:
+        return os.getenv(
+            "BACKEND_URL",
+            "http://127.0.0.1:8000"
+        ).rstrip("/")
 
 def query_assistant(prompt: str) -> Dict[str, Any]:
     """Queries FastAPI backend with fast fallback to local execution if backend is unreachable."""
