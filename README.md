@@ -1,5 +1,12 @@
 # RSG Mini AI Business Intelligence Assistant
 
+## Live Demo
+
+- **Dashboard (Streamlit):** https://mini-ai-bi-assistant-xxwxwdaib9fwzxzbgpwvr4.streamlit.app/
+- **API (Render):** https://mini-ai-bi-assistant-3t6d.onrender.com ([health check](https://mini-ai-bi-assistant-3t6d.onrender.com/health))
+
+Both run on free hosting tiers, so the first load after a period of inactivity can take 30–60 seconds while the services wake up. The AI mode (Gemini tool-calling) is enabled through hosted secrets, and the app falls back to the deterministic engine if no key is set. API keys are never stored in this repository.
+
 An AI-powered Business Intelligence web assistant delivering verified, deterministic sales analytics and grounded natural language query processing over company transaction data. Built with **Python 3.11**, **FastAPI**, **SQLite**, **Streamlit**, and **Plotly**, with optional **Google Gemini** integration.
 
 > **Note on Currency**: The underlying sales dataset CSV defines monetary amounts as numeric values without an explicit currency field. By default, the application formats monetary values using the Indian numbering system and the Indian Rupee symbol (**₹**, e.g., `₹14,45,200.00`), configurable via the `CURRENCY_SYMBOL` environment variable.
